@@ -7,3 +7,20 @@
     margin: 30px;
     padding: 0;
 }
+
+
+
+.fecha {
+    color: aliceblue;
+    font-size: 25px;
+}
+
+.imagen-elemento {
+    width: 100px;
+    height: 100px;
+}
+
+.logo {
+    width: 900px;
+    height: 900px;
+}

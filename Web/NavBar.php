@@ -11,17 +11,23 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
 <?php include "mensaje.php"; ?>
 
 
-<header id="header" style="padding-left: 600px;">
+<header id="header" style="padding-center: 600px;">
   <div class="container">
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">
-        <a id="title" class="navbar-brand" href="index.php" style="color: white;font-size: 24px;"><strong>TIEMPO</strong> MAYA</a>
         <button class="navbar-toggler" type="button" onclick="rellenar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span><i style="color: white;" class="fas fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul class="navbar-nav nav-menu">
+
+            <ul class="navbar-nav nav-menu">
+                <li class="nav-item">
+                    <a id="title" class="navbar-brand" href="index.php" style="color: white;font-size: 24px;"><strong>TIEMPO</strong> MAYA</a>
+
+                </li>
             <li>
+
+
               <a class="nav-link" href="models/paginaModelo.php?pagina=Calendario Haab">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>
               <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario Haab
@@ -103,9 +109,9 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
             <li class="nav-item">
               <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
             </li>
-            
+
             <li class="nav-item"><a class="nav-link" href="calculadora.php">Calculadora</a></li>
-           
+
           </ul>
         </div>
       </div>

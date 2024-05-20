@@ -266,3 +266,16 @@ h5{
   line-height: 24px;
   font-size: 14px;
 }
+
+.imagen-div {
+  text-align: center;
+}
+
+.imagen-elemento {
+  width: 150px;
+  height: 150px;
+}
+
+.no-color{
+  background: white;
+}

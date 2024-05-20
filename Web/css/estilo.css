@@ -3,7 +3,11 @@ body {
   background: #fff;
   color: #666666;
   font-family: "Open Sans", sans-serif;
+
+
+
 }
+
 
 a {
   color: #2dc997;
@@ -101,14 +105,75 @@ h1, h2, h3, h4, h5, h6 {
   #header.header-fixed1  {
     height: 78px;
   }
-  
+
 }
+
+
+body.background-morning  {
+  background: url(../img/fondoAmanecer.jpg) top center;
+  background-size: cover;
+
+}
+
+body.background-afternoon  {
+  background: url(../img/fondoAtardecer.jpg) top center;
+  background-size: cover;
+
+}
+
+body.background-evening  {
+  background: url(../img/fondoNoche.jpeg) top center;
+  background-size: cover;
+
+}
+
+body.background-day  {
+  background: url(../img/fondo.png) top center;
+  background-size: cover;
+
+}
+
+
+
+body.background-morning-modelo #inicio {
+  background: url(../img/fondoAmanecer.jpg) top center;
+  background-size: cover;
+
+}
+
+body.background-afternoon-modelo #inicio {
+  background: url(../img/fondoAtardecer.jpg) top center;
+  background-size: cover;
+
+}
+
+body.background-evening-modelo #inicio {
+  background: url(../img/fondoNoche.jpeg) top center;
+  background-size: cover;
+
+}
+
+body.background-day-modelo #inicio {
+  background: url(../img/fondo.png) top center;
+  background-size: cover;
+
+}
+
+
+
+/* Excluir ciertas secciones del fondo */
+body.background-morning .exclude-background,
+body.background-afternoon .exclude-background,
+body.background-evening .exclude-background {
+  background: none;
+}
+
 
 #inicio {
   width: 100%;
   height: 100vh;
-  background: url(../img/fondo.png) top center;
-  background-size: cover;
+
+
   position: relative;
 }
 
@@ -154,9 +219,9 @@ h1, h2, h3, h4, h5, h6 {
   #inicio h1 {
     font-size: 28px;
     line-height: 36px;
-   
+
   }
-  
+
 }
 
 #inicioContainer{
@@ -400,3 +465,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 13px;
   color: #ccc;
 }
+
+
+.icon-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1px; /* Espacio entre los íconos */
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.icon img {
+  max-width: 100px; /* Ajusta el tamaño según sea necesario */
+  max-height: 100px; /* Ajusta el tamaño según sea necesario */
+}
+
+

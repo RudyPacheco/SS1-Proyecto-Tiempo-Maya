@@ -1,11 +1,13 @@
-
 #formulario {
     background: rgba(63, 64, 66, 0.7);
     transition: 0.5s;
     width: 50%;
+    margin-top: 20px;
 }
-#formulario h1{
+
+#formulario h1 {
     margin: 30px;
+
     padding: 0;
 }
 
@@ -14,14 +16,13 @@
     font-size: 20px;
 }
 
-
-.form-control{
+.form-control {
     width: 85%;
     font-size: 18px;
     margin: auto;
 }
 
-#tabla{
+#tabla {
     text-align: left;
 }
 
@@ -36,36 +37,50 @@
     line-height: 56px;
     text-transform: uppercase;
     color: #fff;
-  }
-  
-  @media (max-width: 994px) {
+}
+
+@media (max-width: 994px) {
     #inicio h1 {
-      font-size: 25px;
-      line-height: 36px;
-      margin: 10px;
-      
-     
+        font-size: 25px;
+        line-height: 36px;
+        margin: 10px;
     }
-    .form-control{
+    .form-control {
         font-size: 10px;
     }
-
-    .form-label{
+    .form-label {
         font-size: 15px;
     }
-    #formulario{
+    #formulario {
         width: 40%;
     }
-    
-  }
+}
 
-.loginfixed{
+.loginfixed {
     margin-top: 360px;
     transition: 0.5s;
 }
 
-@media (min-width: 994px){
+@media (min-width: 994px) {
     .loginfixed {
         margin-top: 75px;
     }
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+h4,
+h5 {
+    color: #fff;
+}
+
+
+.cruz-section{
+    background: rgba(63, 64, 66, 0.7);
+    display:flex;
 }

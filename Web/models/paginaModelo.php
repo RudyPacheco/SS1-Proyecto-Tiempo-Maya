@@ -11,6 +11,14 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 
 ?>
 
+
+<?php
+
+include "funcionFondo.php";
+$backgroundClass = getBackgroundClass() . '-modelo';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,59 +34,67 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 </head>
 <?php include "../NavBar2.php" ?>
 
-<body>
-    <section id="inicio">
-        <div id="inicioContainer" class="inicio-container">
+<body  class="<?php echo $backgroundClass ; ?>">
 
-            <?php echo "<h1>" . $pagina . " </h1>";
-            foreach ($secciones as $seccion) {
-                echo " <a href='#" . $seccion['seccion'] . "' class='btn-get-started'>" . $seccion['seccion'] . "</a>";
+
+<section id="inicio">
+    <div id="inicioContainer" class="inicio-container">
+
+        <?php echo "<h1>" . $pagina . " </h1>";
+
+        foreach ($secciones as $seccion) {
+            echo " <a href='#" . $seccion['seccion'] . "' class='btn-get-started'>" . $seccion['seccion'] . "</a>";
+        }
+        ?>
+
+
+    </div>
+</section>
+<div class="no-color">
+
+
+
+<?php
+
+
+foreach ($secciones as $seccion) {
+    $stringPrint = "<section id='" . $seccion['seccion'] . "' class='exclude-background'> <div class='container '> <div class='section-header'><h3 class='section-title'>" . $seccion['seccion'] . " </h3> </div>";
+    foreach ($informacion as $info) {
+        if ($seccion['seccion'] == $info['seccion']) {
+            if ($info['seccion'] != "Informacion") {
+
+                $stringPrint .= "<h2><a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "'/>" . $info['nombre'] . " </a></h2>";
             }
-            ?>
-        </div>
-    </section>
-
-    <?php
-
-
-    foreach ($secciones as $seccion) {
-        $stringPrint = "<section id='" . $seccion['seccion'] . "'> <div class='container'> <div class='section-header'><h3 class='section-title'>" . $seccion['seccion'] . " </h3> </div>";
-        foreach ($informacion as $info) {
-            if ($seccion['seccion'] == $info['seccion']) {
-                if ($info['seccion'] != "Informacion") {
-
-                    $stringPrint .= "<h2><a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "'/>" . $info['nombre'] . " </a></h2>";
-                }
-                $stringPrint .= "<hr>";
-                $stringPrint .= $info['htmlCodigo'];
-                foreach ($elementos as $elemento) {
-                    if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
-                        $tabla = strtolower($elemento['nombre']);
-                        $elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
-                        $stringPrint .= "<ul>";
-                        foreach ($elementosEl as $el) {
-                            if ($el['nombre'] == "Informacion") {
-                                $stringPrint .= "<li> <a href='#'>" . $el['nombre'] . " </a> </li>";
-                            } else {
-                                $stringPrint .= "<li> <a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "#" . $el['nombre'] . "'>" . $el['nombre'] . " </a> </li>";
-                            }
+            $stringPrint .= "<hr>";
+            $stringPrint .= $info['htmlCodigo'];
+            foreach ($elementos as $elemento) {
+                if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
+                    $tabla = strtolower($elemento['nombre']);
+                    $elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
+                    $stringPrint .= "<ul>";
+                    foreach ($elementosEl as $el) {
+                        if ($el['nombre'] == "Informacion") {
+                            $stringPrint .= "<li> <a href='#'>" . $el['nombre'] . " </a> </li>";
+                        } else {
+                            $stringPrint .= "<li> <a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "#" . $el['nombre'] . "'>" . $el['nombre'] . " </a> </li>";
                         }
-                        $stringPrint .= "</ul>";
                     }
+                    $stringPrint .= "</ul>";
                 }
             }
         }
-        $stringPrint .= "</div> </section> <hr>";
-        echo $stringPrint;
     }
+    $stringPrint .= "</div> </section> <hr>";
+    echo $stringPrint;
+}
 
-    ?>
+?>
 
 
+</div>
 
 
-
-    <?php include "../blocks/bloquesJs.html" ?>
+<?php include "../blocks/bloquesJs.html" ?>
 
 
 

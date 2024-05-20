@@ -16,6 +16,13 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
 
 ?>
 
+<?php
+
+include "funcionFondo.php";
+$backgroundClass = getBackgroundClass() . '-modelo';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,50 +38,59 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
 </head>
 <?php include "../NavBar2.php" ?>
 
-<body>
-    <section id="inicio">
-        <div id="inicioContainer" class="inicio-container">
+<body  class="<?php echo $backgroundClass; ?>">
 
-            <?php echo "<h1>" . $tabla . " </h1>";
-            ?>
-            <a href='#informacion' class='btn-get-started'>Informacion</a>
-            <a href='#elementos' class='btn-get-started'>Elementos</a>
-        </div>
-    </section>
-    <section id="information">
-        <div class="container">
-            <div class="row about-container">
-                <div class="section-header">
-                    <h3 class="section-title">INFORMACION</h3>
-                </div>
-                <?php foreach($informacion as $info){
-                    echo $info['htmlCodigo'];
-                }?>
+
+
+<section id="inicio">
+    <div id="inicioContainer" class="inicio-container">
+
+        <?php echo "<h1>" . $tabla . " </h1>";
+        ?>
+        <a href='#informacion' class='btn-get-started'>Informacion</a>
+        <a href='#elementos' class='btn-get-started'>Elementos</a>
+    </div>
+</section>
+
+
+
+<section id="information">
+    <div class="container">
+        <div class="row about-container">
+            <div class="section-header">
+                <h3 class="section-title">INFORMACION</h3>
             </div>
-
+            <?php foreach($informacion as $info){
+                echo $info['htmlCodigo'];
+            }?>
         </div>
-    </section>
-    <hr>
-    
-    <section id="elementos">
-        <div class="container">
-            <div class="row about-container">
-                <div class="section-header">
-                    <h3 class="section-title">Elementos</h3>
-                </div>
-                <?php foreach($datos as $dato){
-                   $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
-                   $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
-                   $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
-                   echo $stringPrint;
-                }?>
+
+    </div>
+</section>
+<hr>
+
+<section id="elementos" class="exclude-background">
+    <div class="container ">
+        <div class="row about-container">
+            <div class="section-header">
+                <h3 class="section-title">Elementos</h3>
             </div>
-
+            <?php foreach($datos as $dato){
+                $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
+                $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
+                $stringPrint.= "<div class=\"imagen-div\" >";
+                $stringPrint.="<img src=\"../img/".$tabla."/".$dato['nombre'].".png\" alt=\"No se puede mostrar la imagen.\" class=\"imagen-elemento\" >";
+                $stringPrint.= "</div>";
+                $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
+                echo $stringPrint;
+            }?>
         </div>
-    </section>
+
+    </div>
+</section>
 
 
-    <?php include "../blocks/bloquesJs.html" ?>
+<?php include "../blocks/bloquesJs.html" ?>
 
 
 
